@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Multi Time Zone Clock</title>
+  <meta name="description" content="A simple digital clock that displays the current time in multiple IANA time zones. Add/remove zones and toggle 12/24-hour format." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+  <main class="app" role="main">
+    <header>
+      <h1>Multi Time Zone Clock</h1>
+      <p class="subtitle">Display current time in different time zones</p>
+    </header>
+
+    <section class="controls" aria-label="Controls">
+      <label for="tz-input">Time zone:
+        <input id="tz-input" list="tz-list" placeholder="e.g. Europe/London" aria-describedby="tz-help" />
+        <datalist id="tz-list"></datalist>
+      </label>
+      <button id="add-btn" aria-label="Add time zone">Add</button>
+
+      <label class="toggle" title="Toggle 24-hour time">
+        <input type="checkbox" id="hour-toggle" />
+        24-hour
+      </label>
+
+      <button id="reset-btn" class="muted" title="Restore default zones">Reset defaults</button>
+
+      <div id="tz-help" class="small">Use IANA time zone names, e.g. America/New_York, Europe/London, Asia/Tokyo</div>
+    </section>
+
+    <section id="zones" class="zones" aria-live="polite" aria-label="Time zones"></section>
+
+    <footer>
+      <small>Times are provided by your browser's Intl API — works offline and requires no server.</small>
+    </footer>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
